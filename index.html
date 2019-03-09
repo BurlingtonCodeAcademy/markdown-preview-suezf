@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -23,12 +24,16 @@
     <script>
         //function to change the preview content
 
-        let source = document.getElementById('source');
+        
         let preview = document.getElementById('preview');
         let render = document.getElementById('render');
         //        change preview text
         function inputChange() {
-            preview.textContent = source.textContent;
+         let markdown = document.getElementById('source').value;
+            let html = marked(markdown);
+            document.getElementById('preview').innerHTML = html;
+            return html;
+            //           preview.textContent = source.textContent; 
         }
         render.addEventListener('click', inputChange)
     </script>
