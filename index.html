@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <H1>Markdown Preview</H1>
+
+    <table id="seeItAll">
+        <tr>
+            <td> <textarea id='source'></textarea></td>
+            <td> <button id='render'>Render</button></td>
+            <td>
+                <div id='preview'>Talk to me!</div>
+            </td>
+        </tr>
+    </table>
+    <script>
+        //function to change the preview content
+
+        let source = document.getElementById('source');
+        let preview = document.getElementById('preview');
+        let render = document.getElementById('render');
+        //        change preview text
+        function inputChange() {
+            preview.textContent = source.textContent;
+        }
+        render.addEventListener('click', inputChange)
+    </script>
+</body>
+
+</html>
