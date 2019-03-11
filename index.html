@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <H1 align=center>Markdown Preview</H1>
+    <table align=center>
+        <tr>
+            <td>Type in the source box and see your text apprear in the preview box</td>
+        </tr>
+    </table>
+    <table id="seeItAll" width=600 height=200 bordercolor="blue" align=center>
+        <tr>
+            <td><textarea id='source'></textarea>
+            <td>
+            <td>
+                <div id='preview'>See your typing apprear here!</div>
+            </td>
+            </td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id='render'>Render</button>
+            <td><button id='bold'>Bold</button>
+            <td>
+            </td>
+            </td>
+            </td>
+        </tr>
+
+
+    </table>
+    <script>
+        //function to change the preview content
+
+
+        let preview = document.getElementById('preview');
+        let render = document.getElementById('render');
+        let bold = document.getElementById('bold');
+        //        change preview text
+        function inputChange() {
+            let markdown = document.getElementById('source').value;
+            let html = marked(markdown);
+            document.getElementById('preview').innerHTML = html;
+            return html;
+
+        };
+        // make preview text bold
+        function makeBold() {
+            let selectText = document.getSelection();
+            let markedText = ('**' + selectText + '**');
+            let html = marked(markedText);
+            document.getElementById('preview').innerHTML = html;
+            return html;
+
+        };
+        source.addEventListener('keyup', inputChange, true);
+        render.addEventListener('click', inputChange);
+        bold.addEventListener('click', makeBold, true);
+    </script>
+</body>
+
+</html>
